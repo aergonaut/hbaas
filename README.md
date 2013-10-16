@@ -1,5 +1,17 @@
 # Happy Birthday as a Service
 
+## Endpoints
+
+More to come!
+
+### /to/you
+
+Simple, generic birthday greeting.
+
+### /to/you/:name
+
+Personalized greeting, with lucky person's own name.
+
 ## License
 
 The MIT License (MIT)
