@@ -1,0 +1,7 @@
+%h1
+  = succeed "!" do
+    Happy Birthday to
+    - if name
+      = "you, #{name}"
+    - else
+      you
