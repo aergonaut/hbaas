@@ -16,12 +16,33 @@ class App < Sinatra::Base
 
   respond_to :html, :json
 
+  get '/' do
+    methods = [
+      {
+        endpoint: "/to/you",
+        description: "Simple, generic birthday greeting"
+      },
+      {
+        endpoint: "/to/you/:name",
+        arguments: { name: "/\w+/" },
+        description: "Personalized greeting, with lucky person's own name"
+      }
+    ]
+
+    respond_to do |f|
+      f.json { json status: "success", methods: methods }
+    end
+  end
+
   get '/to/you' do
-    haml :index, locals: { name: false }
+    haml :greeting, locals: { name: false }
   end
 
   get '/to/you/:name' do
-    haml :index, locals: { name: params[:name] }
+    respond_to do |f|
+      f.html { haml :greeting, locals: { name: params[:name] } }
+      f.json { json status: "success", formatted: { message: "Happy Birthday to you, #{params[:name]}!" }, template: "Happy Birthday to you, :name!", name: params[:name] }
+    end
   end
 
 end
