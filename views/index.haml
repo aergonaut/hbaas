@@ -1,0 +1,14 @@
+.row
+  .col-md-12
+    .jumbotron.text-center
+      %h1 Happy Birthday as a Service
+.row
+  .col-md-12
+    %p
+      %strong Happy Birthday as a Service
+      is the easiest way to quickly send birthday greetings to your friends.
+
+    %h2 Endpoints
+    - methods.each do |method|
+      %h3= method[:endpoint]
+      %p= method[:description]

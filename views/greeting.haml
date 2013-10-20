@@ -1,7 +1,10 @@
-%h1
-  = succeed "!" do
-    Happy Birthday to
-    - if name
-      = "you, #{name}"
-    - else
-      you
+.row
+  .col-md-12
+    .jumbotron.text-center
+      %h1
+        = succeed "!" do
+          Happy Birthday to
+          - if name
+            = "you, #{name}"
+          - else
+            you

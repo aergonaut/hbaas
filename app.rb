@@ -30,6 +30,7 @@ class App < Sinatra::Base
     ]
 
     respond_to do |f|
+      f.html { haml :index, locals: { methods: methods } }
       f.json { json status: "success", methods: methods }
     end
   end
